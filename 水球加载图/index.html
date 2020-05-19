@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            height: 100vh;
+            background: linear-gradient(#5f5ffa, #03036e);
+        }
+        .main, .wave {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            position: absolute;
+            top: calc(50% - 100px);
+            left: calc(50% - 100px);
+        }
+        .main {
+            border: 3px solid darkturquoise;
+            padding: 10px;
+        }
+        .wave {
+            background: darkturquoise;
+            overflow: hidden;
+        }
+        .wave::before {
+            content: '0%';
+            font-size: 1.4rem;
+            color: white;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            animation: progress 8s linear infinite;
+            z-index: 99;
+        }
+        .wave::after {
+            content: '';
+            width: 300px;
+            height: 300px;
+            border-radius: 36%;
+            background: rgba(255, 255, 255, 0.8);
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, -20%);
+            animation: wave 8s linear infinite;
+        }
+        @keyframes wave {
+            0% {
+                transform: translate(-50%, -20%) rotate(60deg);
+            }
+            20% {
+                transform: translate(-50%, -40%) rotate(100deg);
+            }
+            40% {
+                transform: translate(-50%, -60%) rotate(180deg);
+            }
+            60% {
+                transform: translate(-50%, -80%) rotate(260deg);
+            }
+            80% {
+                transform: translate(-50%, -90%) rotate(320deg);
+            }
+            100% {
+                transform: translate(-50%, -100%) rotate(360deg);
+            }
+        }
+        @keyframes progress {
+            0% {
+                content: '0%';
+            }
+            20% {
+                content: '20%';
+            }
+            40% {
+                content: '40%';
+            }
+            60% {
+                content: '60%';
+            }
+            80% {
+                content: '80%';
+            }
+            100% {
+                content: '99%';
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="wave"></div>
+    </div>
+</body>
+</html>
