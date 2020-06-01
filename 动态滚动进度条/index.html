@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动态滚动进度条</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .progress-bar {
+            width: 600px;
+            height: 20px;
+            background: #dedede;
+            overflow: hidden;
+        }
+        .progress-value {
+            height: 20px;
+            background: repeating-linear-gradient(45deg, #99ccff 0px,#99ccff 15px, #0099cc 15px, #0099cc 30px);
+            background-size: 42px 20px;
+            animation: progress-scroll 1s linear 0s infinite, progress-width 10s 1s;
+        }
+        @keyframes progress-scroll {
+            from {
+                background-position: 0px 0px;
+            }
+            to {
+                background-position: 42px 0px;
+            }
+        }
+        @keyframes progress-width {
+            from {
+                width: 0;
+            }
+            to {
+                width: 600px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar">
+        <div class="progress-value"></div>
+    </div>
+</body>
+</html>
